@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis Legends | The Pinnacle of Tennis</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter for readable text, Playfair Display for elegant headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        wimbledon: '#006400',
+                        clay: '#c55a11',
+                        hardcourt: '#1e3a8a',
+                        ball: '#ccff00'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a premium feel */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #006400; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #004d00; }
+        
+        /* Gradient text utility */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased selection:bg-wimbledon selection:text-white">
+
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-wimbledon mr-3 transform rotate-45">
+                        <circle cx="12" cy="7" r="5" stroke-width="2"></circle>
+                        <path d="M12 12v10" stroke-width="3"></path>
+                        <path d="M10 16h4"></path>
+                        <path d="M10 19h4"></path>
+                        <path d="M9 7h6"></path>
+                        <path d="M12 4v6"></path>
+                    </svg>
+                    <span class="font-serif font-bold text-2xl tracking-tight text-gray-900">Tennis<span class="text-wimbledon">Legends</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#legends" class="text-gray-600 hover:text-wimbledon font-medium transition-colors">The Big Three</a>
+                    <a href="#nextgen" class="text-gray-600 hover:text-wimbledon font-medium transition-colors">Current Stars</a>
+                    <a href="#grandslams" class="text-gray-600 hover:text-wimbledon font-medium transition-colors">Grand Slam Guide</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-wimbledon focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#legends" class="block px-3 py-2 text-gray-600 hover:text-wimbledon font-medium">The Big Three</a>
+                <a href="#nextgen" class="block px-3 py-2 text-gray-600 hover:text-wimbledon font-medium">Current Stars</a>
+                <a href="#grandslams" class="block px-3 py-2 text-gray-600 hover:text-wimbledon font-medium">Grand Slam Guide</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-20 pb-32 flex items-center justify-center min-h-[80vh] sm:min-h-[90vh] overflow-hidden group">
+        <!-- Background Slider -->
+        <div id="hero-slider" class="absolute inset-0 z-0 bg-gray-900">
+            <!-- Slide 1: Roger Federer -->
+            <div class="slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-100" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Roger_Federer_%2816223126781%29.jpg/1280px-Roger_Federer_%2816223126781%29.jpg'); background-position: 50% 20%;"></div>
+            
+            <!-- Slide 2: Rafael Nadal -->
+            <div class="slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Rafael_Nadal_at_the_2023_Australian_Open_%28cropped_2%29.jpg/1280px-Rafael_Nadal_at_the_2023_Australian_Open_%28cropped_2%29.jpg'); background-position: 50% 15%;"></div>
+            
+            <!-- Slide 3: Novak Djokovic -->
+            <div class="slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Novak_Djokovic_at_the_2023_US_Open.jpg/1280px-Novak_Djokovic_at_the_2023_US_Open.jpg'); background-position: 50% 20%;"></div>
+            
+            <!-- Slide 4: Carlos Alcaraz -->
+            <div class="slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Carlos_Alcaraz_%2852339589333%29.jpg/1280px-Carlos_Alcaraz_%2852339589333%29.jpg'); background-position: 50% 30%;"></div>
+            
+            <!-- Slide 5: Jannik Sinner -->
+            <div class="slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Jannik_Sinner_%2852332616183%29.jpg/1280px-Jannik_Sinner_%2852332616183%29.jpg'); background-position: 50% 25%;"></div>
+            
+            <!-- Dark Overlay for text legibility & Vignette -->
+            <div class="absolute inset-0 bg-gray-900/60"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-gray-900/40 to-gray-900/90"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-10">
+            <span class="inline-block py-1 px-4 rounded-full bg-wimbledon/90 backdrop-blur-sm text-white font-semibold text-sm mb-6 uppercase tracking-wider shadow-sm border border-wimbledon/50">
+                The Pinnacle of the Sport
+            </span>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                Witness Tennis <br/> <span class="bg-gradient-to-r from-ball to-emerald-400 text-gradient">Greatness</span>
+            </h1>
+            <p class="mt-4 text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 font-light drop-shadow-md">
+                Explore the legacies of the undisputed kings of the court, the rising stars defining the modern era, and the prestigious Grand Slams they conquer.
+            </p>
+            <div class="flex justify-center gap-4 flex-col sm:flex-row">
+                <a href="#legends" class="bg-wimbledon text-white px-8 py-3 rounded-full font-medium shadow-lg hover:bg-green-700 transition-all hover:-translate-y-1">
+                    Meet the Legends
+                </a>
+                <a href="#grandslams" class="bg-white/10 backdrop-blur-sm text-white border border-white/50 px-8 py-3 rounded-full font-medium shadow-sm hover:bg-white hover:text-gray-900 transition-all">
+                    Explore Grand Slams
+                </a>
+            </div>
+        </div>
+
+        <!-- Slider Navigation Dots -->
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center space-x-3 z-20">
+            <button class="slider-dot w-3 h-3 rounded-full bg-white transition-all duration-300 shadow-md" data-index="0" aria-label="Slide 1"></button>
+            <button class="slider-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/80 transition-all duration-300 shadow-md" data-index="1" aria-label="Slide 2"></button>
+            <button class="slider-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/80 transition-all duration-300 shadow-md" data-index="2" aria-label="Slide 3"></button>
+            <button class="slider-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/80 transition-all duration-300 shadow-md" data-index="3" aria-label="Slide 4"></button>
+            <button class="slider-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white/80 transition-all duration-300 shadow-md" data-index="4" aria-label="Slide 5"></button>
+        </div>
+    </header>
+
+    <section id="legends" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">The Big Three</h2>
+                <div class="w-24 h-1 bg-wimbledon mx-auto rounded-full"></div>
+                <p class="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">The triumvirate that defined an era, pushing the boundaries of tennis and achieving unimaginable heights.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- Novak Djokovic Card -->
+                <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-56 relative overflow-hidden">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Novak_Djokovic_%2853034989914%29_%28cropped%29.jpg/800px-Novak_Djokovic_%2853034989914%29_%28cropped%29.jpg" alt="Novak Djokovic" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
+                    </div>
+                    <div class="pt-6 pb-8 px-6 text-center">
+                        <h3 class="text-2xl font-bold text-gray-900">Novak Djokovic</h3>
+                        <p class="text-sm text-gray-500 mb-4 flex items-center justify-center gap-2">
+                            <img src="https://flagcdn.com/w20/rs.png" alt="Serbia" class="inline-block"> Serbia
+                        </p>
+                        <p class="text-gray-600 text-sm mb-6 line-clamp-3">The ultimate all-surface machine, known for his elite return of serve, unparalleled mental toughness, and flexibility. He holds the record for the most Grand Slam men's singles titles.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 text-left border-t border-gray-200 pt-6">
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase font-semibold">Grand Slams</p>
+                                <p class="text-xl font-bold text-gray-900">24 <i class="fa-solid fa-trophy text-yellow-500 text-sm ml-1"></i></p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase font-semibold">Weeks at No. 1</p>
+                                <p class="text-xl font-bold text-gray-900">428+</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase font-semibold">Masters 1000</p>
+                                <p class="text-xl font-bold text-gray-900">40</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase font-semibold">Best Surface</p>
+                                <p class="text-xl font-bold text-gray-900">Hard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rafael Nadal Card -->
+                <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-56 relative overflow-hidden">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Rafael_Nadal_at_the_2023_Australian_Open_%28cropped%29.jpg/800px-Rafael_Nadal_at_the_2023_Australian_Open_%28cropped%29.jpg" alt="Rafael Nadal" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
+                    </div>
+                    <div class="pt-6 pb-8 px-6 text-center">
+                        <h3 class="text-2xl font-bold text-gray-900">Rafael Nadal</h3>
+                        <p class="text-sm text-gray-500 mb-4 flex items-center justify-center gap-2">
+                            <img src="https://flagcdn.com/w20/es.png" alt="Spain" class="inline-block"> Spain
+                        </p>
+                        <p class="text-gray-600 text-sm mb-6 line-clamp-3">"The King of Clay." Renowned for his fierce competitive spirit, heavy topspin forehand, and unprecedented dominance at the French Open, winning it 14 times.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 text-left border-t border-gray-200 pt-6">
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase font-semibold">Grand Slams</p>
+                                <p class="text-xl font-bold text-gray-900">22 <i class="fa-solid fa-trophy text-yellow-500 text-sm ml-1"></i></p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase font-semibold">French Opens</p>
+                                <p class="text-xl font-bold text-clay">14</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase font-semibold">Masters 1000</p>
+                                <p class="text-xl font-bold text-gray-900">36</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase font-semibold">Best Surface</p>
+                                <p class="text-xl font-bold text-clay">Clay</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Roger Federer Card -->
+                <div class="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group lg:col-span-1 md:col-span-2 lg:mx-0 md:mx-auto md:w-1/2 lg:w-full">
+                    <div class="h-56 relative overflow-hidden">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Federer_WM16_%2837%29.jpg/800px-Federer_WM16_%2837%29.jpg" alt="Roger Federer" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/70 to-transparent"></div>
+                    </div>
+                    <div class="pt-6 pb-8 px-6 text-center">
+                        <h3 class="text-2xl font-bold text-gray-900">Roger Federer</h3>
+                        <p class="text-sm text-gray-500 mb-4 flex items-center justify-center gap-2">
+                            <img src="https://flagcdn.com/w20/ch.png" alt="Switzerland" class="inline-block"> Switzerland
+                        </p>
+                        <p class="text-gray-600 text-sm mb-6 line-clamp-3">The epitome of grace and elegance on the court. His effortless style, one-handed backhand, and all-court mastery made him a global icon and the master of grass courts.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 text-left border-t border-gray-200 pt-6">
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase font-semibold">Grand Slams</p>
+                                <p class="text-xl font-bold text-gray-900">20 <i class="fa-solid fa-trophy text-yellow-500 text-sm ml-1"></i></p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase font-semibold">Wimbledons</p>
+                                <p class="text-xl font-bold text-wimbledon">8</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase font-semibold">Total Titles</p>
+                                <p class="text-xl font-bold text-gray-900">103</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase font-semibold">Best Surface</p>
+                                <p class="text-xl font-bold text-wimbledon">Grass</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="nextgen" class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-white mb-4">The Current Vanguard</h2>
+                <div class="w-24 h-1 bg-ball mx-auto rounded-full"></div>
+                <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">The fierce competitors leading the modern era, bringing explosive power and new tactics to the sport.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                
+                <!-- Carlos Alcaraz Card -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-700 hover:border-ball transition-colors duration-300">
+                    <div class="p-8 flex flex-col h-full">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Carlos Alcaraz</h3>
+                                <p class="text-sm text-gray-400 mt-1 flex items-center gap-2">
+                                    <img src="https://flagcdn.com/w20/es.png" alt="Spain" class="inline-block"> Spain
+                                </p>
+                            </div>
+                            <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-ball shrink-0 bg-gray-700">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Carlos_Alcaraz_-_2023_Wimbledon_-_Diliff.jpg/800px-Carlos_Alcaraz_-_2023_Wimbledon_-_Diliff.jpg" alt="Carlos Alcaraz" class="w-full h-full object-cover object-top">
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-8 flex-grow">A generational talent blending Nadal's defense with Federer's creativity and Djokovic's athleticism. Known for his explosive speed, thunderous forehand, and deft drop shots.</p>
+                        
+                        <div class="bg-gray-900 rounded-xl p-4 grid grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase">Style</p>
+                                <p class="font-semibold text-white">All-Court Aggressive</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase">Breakthrough</p>
+                                <p class="font-semibold text-white">US Open 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jannik Sinner Card -->
+                <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-700 hover:border-ball transition-colors duration-300">
+                    <div class="p-8 flex flex-col h-full">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Jannik Sinner</h3>
+                                <p class="text-sm text-gray-400 mt-1 flex items-center gap-2">
+                                    <img src="https://flagcdn.com/w20/it.png" alt="Italy" class="inline-block"> Italy
+                                </p>
+                            </div>
+                            <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-ball shrink-0 bg-gray-700">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Jannik_Sinner_at_the_2023_US_Open_%28cropped%29.jpg/800px-Jannik_Sinner_at_the_2023_US_Open_%28cropped%29.jpg" alt="Jannik Sinner" class="w-full h-full object-cover object-top">
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-8 flex-grow">Possesses arguably the cleanest ball-striking on tour. His effortless power off both wings, combined with a cool, calm demeanor, makes him a devastating force on hard courts.</p>
+                        
+                        <div class="bg-gray-900 rounded-xl p-4 grid grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase">Style</p>
+                                <p class="font-semibold text-white">Baseline Power</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase">Breakthrough</p>
+                                <p class="font-semibold text-white">Aus Open 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="grandslams" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16">
+                <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">The Grand Slams</h2>
+                <div class="w-24 h-1 bg-wimbledon rounded-full mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl">The four major championships, known as Grand Slams, are the most prestigious tournaments in tennis. They offer the most ranking points, prize money, and public attention. Winning all four in a single year is the ultimate achievement.</p>
+            </div>
+
+            <div class="space-y-6">
+                
+                <!-- Australian Open -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center hover:shadow-md transition-shadow">
+                    <div class="w-full md:w-1/3 h-48 rounded-xl overflow-hidden relative group shrink-0">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Rod_Laver_Arena_inside.jpg/800px-Rod_Laver_Arena_inside.jpg" alt="Australian Open Court" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-blue-900/30 mix-blend-multiply"></div>
+                        <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-4">
+                            <i class="fa-solid fa-sun text-4xl mb-2 drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <h4 class="text-2xl font-bold text-gray-900 mb-2">The Happy Slam</h4>
+                        <div class="flex flex-wrap gap-3 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-semibold text-gray-600"><i class="fa-solid fa-location-dot mr-1"></i> Melbourne, AUS</span>
+                            <span class="px-3 py-1 bg-blue-50 rounded-full text-xs font-semibold text-blue-700"><i class="fa-solid fa-layer-group mr-1"></i> Hard Court</span>
+                            <span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-semibold text-gray-600"><i class="fa-regular fa-calendar mr-1"></i> January</span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">The first major of the year, played in the peak of the Australian summer. It is known for its extreme heat, testing the physical endurance of players right at the start of the season. Played on blue Plexicushion hard courts.</p>
+                    </div>
+                </div>
+
+                <!-- Roland Garros -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center hover:shadow-md transition-shadow">
+                    <div class="w-full md:w-1/3 h-48 rounded-xl overflow-hidden relative group shrink-0">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Court_Philippe_Chatrier_%2834375058564%29.jpg/800px-Court_Philippe_Chatrier_%2834375058564%29.jpg" alt="Roland Garros Court" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-orange-900/30 mix-blend-multiply"></div>
+                        <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-4">
+                            <i class="fa-solid fa-fire text-4xl mb-2 drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <h4 class="text-2xl font-bold text-gray-900 mb-2">The French Open</h4>
+                        <div class="flex flex-wrap gap-3 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-semibold text-gray-600"><i class="fa-solid fa-location-dot mr-1"></i> Paris, FRA</span>
+                            <span class="px-3 py-1 bg-orange-50 rounded-full text-xs font-semibold text-clay"><i class="fa-solid fa-layer-group mr-1"></i> Red Clay</span>
+                            <span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-semibold text-gray-600"><i class="fa-regular fa-calendar mr-1"></i> May - June</span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">The most physically demanding tournament in the world. The crushed brick (clay) surface slows down the ball and produces a high bounce, leading to long, grueling rallies. It strongly favors defensive baseline players.</p>
+                    </div>
+                </div>
+
+                <!-- Wimbledon -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center hover:shadow-md transition-shadow">
+                    <div class="w-full md:w-1/3 h-48 rounded-xl overflow-hidden relative group shrink-0">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Wimbledon_Centre_Court_2013_%289178125424%29.jpg/800px-Wimbledon_Centre_Court_2013_%289178125424%29.jpg" alt="Wimbledon Court" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-green-900/30 mix-blend-multiply"></div>
+                        <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-4">
+                            <i class="fa-brands fa-envira text-4xl mb-2 drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <h4 class="text-2xl font-bold text-gray-900 mb-2">The Championships</h4>
+                        <div class="flex flex-wrap gap-3 mb-4">
+                            <span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-semibold text-gray-600"><i class="fa-solid fa-location-dot mr-1"></i> London, UK</span>
+                            <span class="px-3 py-1 bg-green-50 rounded-full text-xs font-semibold text-wimbledon"><i class="fa-solid fa-layer-group mr-1"></i> Grass Court</span>
+                            <span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-semibold text-gray-600"><i class="fa-regular fa-calendar mr-1"></i> July</span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">The oldest and arguably most prestigious tennis tournament in the world. Characterized by its strict all-white dress code for competitors, Royal patronage, and strawberries and cream. The grass surface is fast and favors serve-and-volley play and slice.</p>
+                    </div>
+                </div>
+
+                <!-- US Open -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center hover:shadow-md transition-shadow">
+                    <div class="w-full md:w-1/3 h-48 rounded-xl overflow-hidden relative group shrink-0">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Arthur_Ashe_Stadium_%28August_2018%29.jpg/800px-Arthur_Ashe_Stadium_%28August_2018%29.jpg" alt="US Open Court" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-blue-900/30 mix-blend-multiply"></div>
+                        <div class="absolute inset-0 flex flex-col justify-center items-center text-white p-4">
+                            <i class="fa-solid fa-city text-4xl mb-2 drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    <div class="w-full
